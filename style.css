@@ -103,6 +103,10 @@ body button {
   flex-direction: column;
   gap: 20px;
 }
+.parent-container .active-tasks .active-tasks-menu {
+  display: flex;
+  flex-direction: column;
+}
 .parent-container .active-tasks .active-tasks-menu .active-tasks-menu-item {
   display: flex;
   padding: 24px;

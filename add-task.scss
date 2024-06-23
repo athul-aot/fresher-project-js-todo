@@ -8,7 +8,9 @@ p{
     margin: 0;
     padding: 0;
 }
-.add-task-form{
+.task-form{
+    display: flex;
+    flex-direction: column;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -19,19 +21,81 @@ p{
     top: 79px;
     border-radius: 12px;
     gap: 32px;
-
-    background-color: red;
+    background-color:white;
     z-index: 10;
     display: none;
-    // padding-left: 409px;
-    // padding-top: 79px;
-    .add-task-form-title{
+    border: 1px solid #CECECE;
+    .task-form-top{
         max-width: 574px;
         padding-bottom: 24px;
         display: flex;
         justify-content: space-between;
-        background-color: pink;
+        // background-color: pink;
         gap: 16px;
         border-bottom: 1px solid #D0D5DD;
+        button{
+            background-color: white;
+        }
+    }
+    .task-form-bottom{
+        display: flex;
+        flex-direction: column;
+        max-width: 574px;
+        width: 100%;
+        gap: 32px;
+        // background-color: yellow;
+        .task-form-bottom-contents{
+            max-width: 574px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            .task-form-bottom-contents-sub{
+                max-width: 574px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .task-form-inputbox{
+                    max-width: 574px;
+                    border: 1px solid #D0D5DD;
+                    padding: 14px 16px;
+                    border-radius: 8px;
+                }
+                #task-form-date-input{ 
+                    display: flex;
+                    // background-color: gray;
+                }
+            }
+            // .task-form-bottom-contents-description{
+            //     max-width: 574px;
+            //     display: flex;
+            //     flex-direction: column;
+            //     gap: 20px;
+            //     .task-form-inputbox{
+            //         max-width: 574px;
+            //         border: 1px solid #D0D5DD;
+            //         padding: 14px 16px;
+            //         border-radius: 8px;
+            //     }
+            // }
+        }
+        .task-form-bottom-buttons{
+            display: flex;
+            gap:12px ;
+            justify-content: end;
+            #task-form-bottom-buttons-cancel{
+                max-width: 96px;
+                border-radius: 8px;
+                border:  1px solid #D0D5DD;
+                padding: 10px 20px;
+            }
+            #task-form-bottom-buttons-addtask{
+                max-width: 115px;
+                border-radius: 5px;
+                background-color: #0C39C7;
+                padding: 10px 20px;
+                color: white;
+            }
+        }
     }
 }

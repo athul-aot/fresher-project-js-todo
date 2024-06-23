@@ -103,6 +103,8 @@ body{
         flex-direction: column;
         gap: 20px;
         .active-tasks-menu{
+            display: flex;
+            flex-direction: column;
             .active-tasks-menu-item{
                 display: flex;
                 padding: 24px;

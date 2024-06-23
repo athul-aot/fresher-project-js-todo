@@ -11,14 +11,62 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body>
-    <div class="add-task-form" id="add-task-form">
-        <div class="add-task-form-title">
+<body onload="loadTasks()">
+    <div class="task-form" id="add-task-form">
+        <div class="task-form-top">
                 <p>Add Task</p>
-                <button><img src="images/close.svg"></button>
+                <button id="close-add-task" onclick="hideaddTask()"><img src="images/close.svg"></button>
+        </div>
+        <div class="task-form-bottom">
+            <div class="task-form-bottom-contents">
+                <div class="task-form-bottom-contents-sub">
+                    <p>Title *</p>
+                    <input type="text" id="task-form-title-input" placeholder="eg:create two banners" class="task-form-inputbox">
+                </div>
+                <div class="task-form-bottom-contents-sub">
+                    <p>Description</p>
+                    <input type="textarea" id="task-form-description-input" placeholder="Add your description" class="task-form-inputbox">
+                </div>
+                <div class="task-form-bottom-contents-sub">
+                    <p>Due Date</p>
+                    <input type="date" id="task-form-date-input" class="task-form-inputbox">
+                </div>
+            </div>
+            <hr>
+            <div class="task-form-bottom-buttons">
+                <button id="task-form-bottom-buttons-cancel">Cancel</button>
+                <button id="task-form-bottom-buttons-addtask" onclick="createTask()">Add Task</button>
+            </div>
         </div>
     </div>
-    <div class="parent-container">
+    <!-- <div class="task-form" id="edit-task-form">
+        <div class="task-form-top">
+                <p>Add Task</p>
+                <button id="close-add-task" onclick="hideaddTask()"><img src="images/close.svg"></button>
+        </div>
+        <div class="task-form-bottom">
+            <div class="task-form-bottom-contents">
+                <div class="task-form-bottom-contents-sub">
+                    <p>Title *</p>
+                    <input type="text" id="task-form-title-input" placeholder="eg:create two banners" class="task-form-inputbox">
+                </div>
+                <div class="task-form-bottom-contents-sub">
+                    <p>Description</p>
+                    <input type="textarea" id="task-form-description-input" placeholder="Add your description" class="task-form-inputbox">
+                </div>
+                <div class="task-form-bottom-contents-sub">
+                    <p>Due Date</p>
+                    <input type="date" id="task-form-date-input" class="task-form-inputbox">
+                </div>
+            </div>
+            <hr>
+            <div class="task-form-bottom-buttons">
+                <button id="task-form-bottom-buttons-cancel">Cancel</button>
+                <button id="task-form-bottom-buttons-addtask">Add Task</button>
+            </div>
+        </div>
+    </div> -->
+    <div class="parent-container" id="parent-container">
         <div class="title-container">
             <div class="title-container-left">
                 <p>My Tasks</p>
@@ -47,12 +95,12 @@
             <p>Active Tasks</p>
             <div class="active-tasks-menu">
                 <div class="active-tasks-menu-item">
-                    <div class="active-tasks-menu-item-child">
+                    <div class="active-tasks-menu-item-child" id="active-tasks-menu-item-child">
                             <img src="images/blank-circle.svg">
                         <div class="active-tasks-menu-item-child-content">
                             <div class="active-tasks-menu-item-child-content-title">
                                 <div class="active-tasks-menu-item-child-content-title-heading">
-                                    <p>active-tasks-menu-item-child-right</p>
+                                    <p></p>
                                     <span class="active-tasks-menu-item-child-content-title-heading-icon"></span>
                                 </div>
                                 <div class="active-tasks-menu-item-child-content-title-icon">
@@ -60,7 +108,7 @@
                                     <button><img src="images/delete-icon.svg"></button>
                                 </div>
                             </div>
-                            <p>loreum ipsum hdejhfd hfjsjf djsjdsjd jhdfjdsfjd fndjfjdfj fjfj</p>
+                            <p></p>
                             <input type="date" id="date">
                         </div>
                     </div>
