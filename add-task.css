@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+button {
+  padding: 0;
+  border: none;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.add-task-form {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: 654px;
+  max-height: 591px;
+  padding: 40px;
+  left: 409px;
+  top: 79px;
+  border-radius: 12px;
+  gap: 32px;
+  background-color: red;
+  z-index: 10;
+  display: none;
+}
+.add-task-form .add-task-form-title {
+  max-width: 574px;
+  padding-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  background-color: pink;
+  gap: 16px;
+  border-bottom: 1px solid #D0D5DD;
+}/*# sourceMappingURL=add-task.css.map */
