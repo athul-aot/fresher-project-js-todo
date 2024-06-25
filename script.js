@@ -1,15 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("hai");
 
     // Retrieve existing tasks from localStorage or initialize an empty array
     let existingTasksString = localStorage.getItem('tasks');
     let existingTasks = JSON.parse(existingTasksString) || [];
     let tasksitem = document.getElementById('active-tasks-menu-item');
-    let completedTasks = [];
+    let taskcompleted = document.getElementById('task-completed');
+    let delete_confirm=document.getElementById('delete-task-confirm');
+    let clear_all_tasks=document.getElementById('clear-completed-task');
 
     // Function to render tasks
     function renderTasks() {
-        tasksitem.innerHTML = ''; // Clear existing tasks
+        tasksitem.innerHTML = ''; // Clear existing active tasks
+        taskcompleted.innerHTML = ''; // Clear completed tasks
 
         existingTasks.forEach((task, index) => {
             // Create checkbox for task completion
@@ -19,21 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
             checkInput.checked = task.completed;
             checkInput.addEventListener('change', function () {
                 task.completed = this.checked;
-
-                if (task.completed) {
-                    completedTasks.push(task);
-                    existingTasks.splice(index, 1); // Remove task from existingTasks
-                } else {
-                    completedTasks = completedTasks.filter(t => t.id !== task.id);
-                    existingTasks.push(task);
-                }
-
-                renderTasks(); // Re-render tasks after state change
+                console.log("index:",index);
                 updateLocalStorage(); // Update localStorage after state change
+                renderTasks(); // Re-render tasks after state change
             });
 
             // Create task child container
             let taskChildDiv = document.createElement('div');
+            taskChildDiv.dataset.index = index;
+            taskChildDiv.dataset.taskId = task.id;
             taskChildDiv.classList.add('tasks-menu-child');
 
             // Create content container
@@ -61,20 +57,33 @@ document.addEventListener("DOMContentLoaded", function () {
             let buttonContainerDiv = document.createElement('div');
             buttonContainerDiv.classList.add('tasks-child-content-title-icon');
 
-            // Create edit button
+            // Create edit icon
             let editButton = document.createElement('button');
+            editButton.id=''
             editButton.classList.add('btn', 'btn-link', 'text-primary', 'p-0');
             editButton.innerHTML = '<img src="images/edit-icon.svg">';
-            editButton.addEventListener('click', function () {
-                // Edit task logic here
-            });
+
+            // let editTaskId = document.getElementById('form-edittask-btn');
+            // editTaskId.addEventListener("click",function(){
+            //     console.log("halooo")
+            //     document.getElementById('edit-task-form').style.display='flex';
+            // });
 
             // Create delete button
             let deleteButton = document.createElement('button');
+            deleteButton.id='delete-btn';
             deleteButton.classList.add('btn', 'btn-link', 'text-danger', 'p-0');
             deleteButton.innerHTML = '<img src="images/delete-icon.svg">';
-            deleteButton.addEventListener('click', function () {
-                deleteTask(index); // Call the delete task function
+            deleteButton.setAttribute('data-bs-toggle','modal');
+                deleteButton.setAttribute('data-bs-target', '#exampleModal');
+                deleteButton.addEventListener("click",function(){
+                    let delete_btn1=document.getElementById('delete-task-confirm');
+                    
+                   delete_btn1.addEventListener("click",function(){
+                    existingTasks=existingTasks.filter((t)=> t.id != task.id);
+                    updateLocalStorage();
+                     renderTasks();
+                   })
             });
 
             // Create description paragraph
@@ -105,18 +114,35 @@ document.addEventListener("DOMContentLoaded", function () {
             taskChildDiv.appendChild(checkInput);
             taskChildDiv.appendChild(contentDiv);
 
-            // Append the task item to the tasks menu
-            tasksitem.appendChild(taskChildDiv);
+            // Append the task item to the appropriate section
+            if (task.completed) {
+                taskcompleted.appendChild(taskChildDiv); // Append to completed tasks section
+            } else {
+                tasksitem.appendChild(taskChildDiv); // Append to active tasks section
+            }
+            clear_all_tasks.addEventListener('click',function(){
+                existingTasks=existingTasks.filter(task => !task.completed);
+                updateLocalStorage();
+                renderTasks();
+    
+            });
+            // delete_confirm.addEventListener("click",function(){
+            //     console.log("my iddd ");
+            //     existingTasks=existingTasks.filter(task=>task.id===taskid);
+            //     console.log("deletedddd");
+            // })
+    
         });
-
-        // Display a message if no tasks are available
-        if (existingTasks.length === 0) {
+        //delete completed tasks
+        if (tasksitem.childNodes.length === 0) {
             tasksitem.innerText = "No tasks available";
-            console.log("no tasks");
         }
-    }
 
-    // Initial render of tasks
+        if (taskcompleted.childNodes.length === 0) {
+            taskcompleted.innerText = "No completed tasks";
+        }
+
+    }
     renderTasks();
 
     // Function to update localStorage with current tasks
@@ -125,19 +151,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Event listeners for displaying/hiding task form
-    let diplaytaskId = document.getElementById('add-new-task');
-    diplaytaskId.addEventListener("click", function (event) {
+    let displayTaskId = document.getElementById('add-new-task');
+    displayTaskId.addEventListener("click", function () {
         document.getElementById('add-task-form').style.display = 'flex';
     });
 
-    let hidetaskId = document.getElementById('close-add-task');
-    hidetaskId.addEventListener('click', function (event) {
+    let hideTaskId = document.getElementById('close-add-task');
+    hideTaskId.addEventListener('click', function () {
         document.getElementById('add-task-form').style.display = 'none';
     });
+    //edit task box display
+
 
     // Event listener for submitting task form
-    let taskformId = document.getElementById('task-form');
-    taskformId.addEventListener('submit', function (event) {
+    let taskFormId = document.getElementById('task-form');
+    taskFormId.addEventListener('submit', function (event) {
         event.preventDefault();
         let title = document.getElementById('addtask-title').value;
         let description = document.getElementById('addtask-description').value;
@@ -152,10 +180,6 @@ document.addEventListener("DOMContentLoaded", function () {
         existingTasks.push(newTask);
         updateLocalStorage(); // Update localStorage after adding new task
         renderTasks(); // Re-render tasks after adding new task
-        // Reset form inputs if needed
-        this.reset()
-        document.getElementById('addtask-title').value = '';
-        document.getElementById('addtask-description').value = '';
-        document.getElementById('addtask-date').value = '';
+        this.reset();
     });
 });

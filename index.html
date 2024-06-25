@@ -44,6 +44,39 @@
             </div>
         </form>
     </div>
+    <div class="form-container" id="edit-task-form">
+
+        <div class="form-top">
+            <p>Edit Task</p>
+            <button id="close-add-task"><img src="images/close.svg"></button>
+        </div>
+        <form id="task-form" method="post" >
+            <div class="form-bottom">
+                <div class="form-contents">
+                    <div class="form-subcontents">
+                        <label>Title *</label>
+                        <input type="text" id="addtask-title" placeholder="eg:create two banners"
+                            class="task-form-inputbox" required>
+                    </div>
+                    <div class="form-subcontents">
+                        <label>Description</label>
+                        <input type="textarea" id="addtask-description" placeholder="Add your description"
+                            class="task-form-inputbox" required>
+                    </div>
+                    <div class="form-subcontents">
+                        <label>Due Date</label>
+                        <input type="date" id="addtask-date" class="task-form-inputbox" required>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-buttons">
+                    <input type="button" id="form-cancel-btn" value="Cancel">
+                    <input type="submit" value="Update Task" id="form-edittask-btn">
+                </div>
+            </div>
+        </form>
+    </div>
+
     <div class="parent-container" id="parent-container">
         <div class="title-container">
             <div class="container-left">
@@ -70,6 +103,25 @@
                 </div>
             </div>
         </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete Task</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          are you sure want to delete
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="delete-task-confirm" type="button" class="btn btn-primary">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
         <div class="tasks">
             <p>Active Tasks</p>
             <div class="tasks-menu" id="active-tasks-menu">
@@ -84,33 +136,12 @@
                     <button type="button" id="clear-completed-task">Clear Completed Tasks</button>
                 </div>
             </div>
-            <div class="completed-tasks-bottom">
-                <div class="completed-tasks-menu-item">
-                    <!-- <div class="completed-tasks-menu-item-child">
-                        <img src="images/blank-circle.svg">
-                        <div class="completed-tasks-menu-item-child-content">
-                            <div class="completed-tasks-menu-item-child-content-title">
-                                <div class="completed-tasks-menu-item-child-content-title-heading">
-                                    <p>active-tasks-menu-item-child-right</p>
-                                    <span class="completed-tasks-menu-item-child-content-title-heading-icon"></span>
-                                </div>
-                                <div class="completed-tasks-menu-item-child-content-title-icon">
-                                    <button><img src="images/edit-icon.svg"></button>
-                                    <button><img src="images/delete-icon.svg"></button>
-                                </div>
-                            </div>
-                            <p>loreum ipsum hdejhfd hfjsjf djsjdsjd jhdfjdsfjd fndjfjdfj fjfj</p>
-                            <input type="date" id="date">
-                        </div>
-                    </div> -->
+            <div class="tasks-menu">
+                <div class="tasks-menu-item" id="task-completed">
+
                 </div>
             </div>
         </div>
-    </div>
-
-
-    <div class="asjkd">
-
     </div>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
