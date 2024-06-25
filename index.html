@@ -18,7 +18,7 @@
             <p>Add Task</p>
             <button id="close-add-task"><img src="images/close.svg"></button>
         </div>
-        <form id="task-form" method="post" >
+        <form id="task-form-add" method="post" >
             <div class="form-bottom">
                 <div class="form-contents">
                     <div class="form-subcontents">
@@ -28,8 +28,9 @@
                     </div>
                     <div class="form-subcontents">
                         <label>Description</label>
-                        <input type="textarea" id="addtask-description" placeholder="Add your description"
-                            class="task-form-inputbox" required>
+                        <!-- <input type="textarea" id="addtask-description" placeholder="Add your description"
+                            class="task-form-inputbox" required> -->
+                            <textarea id="addtask-description" cols="5" class="task-form-inputbox" placeholder="Add your task description" required></textarea>
                     </div>
                     <div class="form-subcontents">
                         <label>Due Date</label>
@@ -48,30 +49,31 @@
 
         <div class="form-top">
             <p>Edit Task</p>
-            <button id="close-add-task"><img src="images/close.svg"></button>
+            <button id="close-edit-task"><img src="images/close.svg"></button>
         </div>
-        <form id="task-form" method="post" >
+        <form id="task-form-edit" method="post" >
             <div class="form-bottom">
                 <div class="form-contents">
                     <div class="form-subcontents">
                         <label>Title *</label>
-                        <input type="text" id="addtask-title" placeholder="eg:create two banners"
+                        <input type="text" id="edittask-title" placeholder="eg:create two banners"
                             class="task-form-inputbox" required>
                     </div>
                     <div class="form-subcontents">
                         <label>Description</label>
-                        <input type="textarea" id="addtask-description" placeholder="Add your description"
-                            class="task-form-inputbox" required>
+                        <textarea id="edittask-description" cols="5" class="task-form-inputbox" placeholder="Add your task description" required></textarea>
+                        <!-- <input type="textarea" id="edittask-description" placeholder="Add your description"
+                            class="task-form-inputbox" required> -->
                     </div>
                     <div class="form-subcontents">
                         <label>Due Date</label>
-                        <input type="date" id="addtask-date" class="task-form-inputbox" required>
+                        <input type="date" id="edittask-date" class="task-form-inputbox" required>
                     </div>
                 </div>
                 <hr>
                 <div class="form-buttons">
-                    <input type="button" id="form-cancel-btn" value="Cancel">
-                    <input type="submit" value="Update Task" id="form-edittask-btn">
+                    <input type="button" id="form-editcancel-btn" value="Cancel">
+                    <input type="submit" value="Update" id="form-edittask-btn">
                 </div>
             </div>
         </form>
@@ -82,7 +84,7 @@
             <div class="container-left">
                 <p>My Tasks</p>
             </div>
-            <button type="button" class="btn btn-primary" id="add-new-task">Add New
+            <button type="button" id="add-new-task">Add New
                 Task</button>
         </div>
         <hr>
@@ -92,9 +94,7 @@
                 <button type="button"><img src="images/search-icon.svg"></button>
             </div>
             <div class="sort">
-                <div class="sort-left">
                     <p>Sort by:</p>
-                </div>
                 <div class="sort-right">
                     <select>
                         <option>Newest First</option>
@@ -103,7 +103,29 @@
                 </div>
             </div>
         </div>
-  <!-- Modal -->
+        <div class="tasks">
+            <p>Active Tasks</p>
+            
+                <div class="tasks-menu" id="active-tasks-menu-item">
+                </div>
+            
+        </div>
+        <div class="completed-tasks">
+            <div class="completed-tasks-top">
+                <p>Completed Tasks</p>
+                <div class="completed-tasks-top-right">
+                    <button type="button" id="clear-completed-task">Clear Completed Tasks</button>
+                </div>
+            </div>
+            <!-- <div class="tasks-menu"> -->
+                <div class="tasks-menu" id="task-completed">
+
+                </div>
+            <!-- </div> -->
+        </div>
+    </div>
+
+    <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -121,28 +143,6 @@
       </div>
     </div>
   </div>
-
-        <div class="tasks">
-            <p>Active Tasks</p>
-            <div class="tasks-menu" id="active-tasks-menu">
-                <div class="tasks-menu-item" id="active-tasks-menu-item">
-                </div>
-            </div>
-        </div>
-        <div class="completed-tasks">
-            <div class="completed-tasks-top">
-                <p>Completed Tasks</p>
-                <div class="completed-tasks-top-right">
-                    <button type="button" id="clear-completed-task">Clear Completed Tasks</button>
-                </div>
-            </div>
-            <div class="tasks-menu">
-                <div class="tasks-menu-item" id="task-completed">
-
-                </div>
-            </div>
-        </div>
-    </div>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
