@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-button {
+button, input {
   padding: 0;
   border: none;
   margin: 0;
@@ -10,7 +10,7 @@ p {
   padding: 0;
 }
 
-.task-form {
+.task-form-container {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -28,7 +28,7 @@ p {
   display: none;
   border: 1px solid #CECECE;
 }
-.task-form .task-form-top {
+.task-form-container .task-form-top {
   max-width: 574px;
   padding-bottom: 24px;
   display: flex;
@@ -36,50 +36,50 @@ p {
   gap: 16px;
   border-bottom: 1px solid #D0D5DD;
 }
-.task-form .task-form-top button {
+.task-form-container .task-form-top button {
   background-color: white;
 }
-.task-form .task-form-bottom {
+.task-form-container .task-form-bottom {
   display: flex;
   flex-direction: column;
   max-width: 574px;
   width: 100%;
   gap: 32px;
 }
-.task-form .task-form-bottom .task-form-bottom-contents {
+.task-form-container .task-form-bottom .task-form-bottom-contents {
   max-width: 574px;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-.task-form .task-form-bottom .task-form-bottom-contents .task-form-bottom-contents-sub {
+.task-form-container .task-form-bottom .task-form-bottom-contents .task-form-bottom-contents-sub {
   max-width: 574px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.task-form .task-form-bottom .task-form-bottom-contents .task-form-bottom-contents-sub .task-form-inputbox {
+.task-form-container .task-form-bottom .task-form-bottom-contents .task-form-bottom-contents-sub .task-form-inputbox {
   max-width: 574px;
   border: 1px solid #D0D5DD;
   padding: 14px 16px;
   border-radius: 8px;
 }
-.task-form .task-form-bottom .task-form-bottom-contents .task-form-bottom-contents-sub #task-form-date-input {
+.task-form-container .task-form-bottom .task-form-bottom-contents .task-form-bottom-contents-sub #task-form-date-input {
   display: flex;
 }
-.task-form .task-form-bottom .task-form-bottom-buttons {
+.task-form-container .task-form-bottom .task-form-bottom-buttons {
   display: flex;
   gap: 12px;
   justify-content: end;
 }
-.task-form .task-form-bottom .task-form-bottom-buttons #task-form-bottom-buttons-cancel {
+.task-form-container .task-form-bottom .task-form-bottom-buttons #task-form-bottom-buttons-cancel {
   max-width: 96px;
   border-radius: 8px;
   border: 1px solid #D0D5DD;
   padding: 10px 20px;
 }
-.task-form .task-form-bottom .task-form-bottom-buttons #task-form-bottom-buttons-addtask {
+.task-form-container .task-form-bottom .task-form-bottom-buttons #task-form-bottom-buttons-addtask {
   max-width: 115px;
   border-radius: 5px;
   background-color: #0C39C7;
