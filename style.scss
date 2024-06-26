@@ -154,13 +154,16 @@ hr {
     }
 }
 #newest{
-    color: white;
     border-radius: 4px;
 }
 #oldest{
     border-radius: 4px;
 }
-#newest,#oldest:hover{
+#newest:hover{
+    background-color: #0C39C7;
+    color: white;
+}
+#oldest:hover{
     background-color: #0C39C7;
     color: white;
 }
@@ -177,10 +180,6 @@ hr {
     max-width: 150px;
     width: 100%;
     background-color: white;
-}
-
-.form-select {
-    background-color: red;
 }
 
 
