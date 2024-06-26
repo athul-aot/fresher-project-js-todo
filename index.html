@@ -12,137 +12,150 @@
 </head>
 
 <body>
-    <div class="form-container" id="add-task-form">
+    <!-- <div class="parent"> -->
+        <div class="form-container" id="add-task-form">
 
-        <div class="form-top">
-            <p>Add Task</p>
-            <button id="close-add-task"><img src="images/close.svg"></button>
-        </div>
-        <form id="task-form-add" method="post" >
-            <div class="form-bottom">
-                <div class="form-contents">
-                    <div class="form-subcontents">
-                        <label>Title *</label>
-                        <input type="text" id="addtask-title" placeholder="eg:create two banners"
-                            class="task-form-inputbox" required>
-                    </div>
-                    <div class="form-subcontents">
-                        <label>Description</label>
-                        <!-- <input type="textarea" id="addtask-description" placeholder="Add your description"
-                            class="task-form-inputbox" required> -->
-                            <textarea id="addtask-description" cols="5" class="task-form-inputbox" placeholder="Add your task description" required></textarea>
-                    </div>
-                    <div class="form-subcontents">
-                        <label>Due Date</label>
-                        <input type="date" id="addtask-date" class="task-form-inputbox" required>
-                    </div>
-                </div>
-                <hr>
-                <div class="form-buttons">
-                    <input type="button" id="form-cancel-btn" value="Cancel">
-                    <input type="submit" value="Add Task" id="form-addtask-btn">
-                </div>
+            <div class="form-top">
+                <p>Add Task</p>
+                <button id="close-add-task"><img src="images/close.svg"></button>
             </div>
-        </form>
-    </div>
-    <div class="form-container" id="edit-task-form">
-
-        <div class="form-top">
-            <p>Edit Task</p>
-            <button id="close-edit-task"><img src="images/close.svg"></button>
-        </div>
-        <form id="task-form-edit" method="post" >
-            <div class="form-bottom">
-                <div class="form-contents">
-                    <div class="form-subcontents">
-                        <label>Title *</label>
-                        <input type="text" id="edittask-title" placeholder="eg:create two banners"
-                            class="task-form-inputbox" required>
+            <form id="task-form-add" method="post" >
+                <div class="form-bottom">
+                    <div class="form-contents">
+                        <div class="form-subcontents">
+                            <label>Title *</label>
+                            <input type="text" id="addtask-title" placeholder="eg:create two banners"
+                                class="task-form-inputbox" required>
+                        </div>
+                        <div class="form-subcontents">
+                            <label>Description</label>
+                            <!-- <input type="textarea" id="addtask-description" placeholder="Add your description"
+                                class="task-form-inputbox" required> -->
+                                <textarea id="addtask-description" cols="5" class="task-form-inputbox" placeholder="Add your task description" required></textarea>
+                        </div>
+                        <div class="form-subcontents">
+                            <label>Due Date</label>
+                            <input type="date" id="addtask-date" class="task-form-inputbox" required>
+                        </div>
                     </div>
-                    <div class="form-subcontents">
-                        <label>Description</label>
-                        <textarea id="edittask-description" cols="5" class="task-form-inputbox" placeholder="Add your task description" required></textarea>
-                        <!-- <input type="textarea" id="edittask-description" placeholder="Add your description"
-                            class="task-form-inputbox" required> -->
-                    </div>
-                    <div class="form-subcontents">
-                        <label>Due Date</label>
-                        <input type="date" id="edittask-date" class="task-form-inputbox" required>
+                    <hr>
+                    <div class="form-buttons">
+                        <input type="button" id="form-cancel-btn" value="Cancel">
+                        <input type="submit" value="Add Task" id="form-addtask-btn">
                     </div>
                 </div>
-                <hr>
-                <div class="form-buttons">
-                    <input type="button" id="form-editcancel-btn" value="Cancel">
-                    <input type="submit" value="Update" id="form-edittask-btn">
+            </form>
+        </div>
+        <div class="form-container" id="edit-task-form">
+    
+            <div class="form-top">
+                <p>Edit Task</p>
+                <button id="close-edit-task"><img src="images/close.svg"></button>
+            </div>
+            <form id="task-form-edit" method="post" >
+                <div class="form-bottom">
+                    <div class="form-contents">
+                        <div class="form-subcontents">
+                            <label>Title *</label>
+                            <input type="text" id="edittask-title" placeholder="eg:create two banners"
+                                class="task-form-inputbox" required>
+                        </div>
+                        <div class="form-subcontents">
+                            <label>Description</label>
+                            <textarea id="edittask-description" cols="5" class="task-form-inputbox" placeholder="Add your task description" required></textarea>
+                            <!-- <input type="textarea" id="edittask-description" placeholder="Add your description"
+                                class="task-form-inputbox" required> -->
+                        </div>
+                        <div class="form-subcontents">
+                            <label>Due Date</label>
+                            <input type="date" id="edittask-date" class="task-form-inputbox" required>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-buttons">
+                        <input type="button" id="form-editcancel-btn" value="Cancel">
+                        <input type="submit" value="Update" id="form-edittask-btn">
+                    </div>
+                </div>
+            </form> 
+        </div>
+    
+        <div class="parent-container" id="parent-container">
+            <div class="title-container">
+                <div class="container-left">
+                    <p>My Tasks</p>
+                </div>
+                <button type="button" id="add-new-task">Add New
+                    Task</button>
+            </div>
+            <hr>
+            <div class="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="search by task name">
+                    <button type="button" id="search"><img src="images/search-icon.svg"></button>
+                </div>
+                <div class="sort">
+                        <p>Sort by:</p>
+                    <div class="sort-right">
+                        <!-- <select>
+                            <option>Newest First</option>
+                            <option>Oldest First</option>
+                        </select> -->
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                              Newest First
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="sort-select">
+                              <li><a id="newest"  class="dropdown-item" href="#">Newest First</a></li>
+                              <li><a id="oldest" class="dropdown-item" href="#">Oldest First</a></li>
+                            </ul>
+                          </div>
+                    </div>
                 </div>
             </div>
-        </form>
-    </div>
-
-    <div class="parent-container" id="parent-container">
-        <div class="title-container">
-            <div class="container-left">
-                <p>My Tasks</p>
+            <div class="tasks">
+                <p>Active Tasks</p>
+                
+                    <div class="tasks-menu" id="active-tasks-menu-item">
+                    </div>
+                
             </div>
-            <button type="button" id="add-new-task">Add New
-                Task</button>
-        </div>
-        <hr>
-        <div class="search">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="search by task name">
-                <button type="button"><img src="images/search-icon.svg"></button>
-            </div>
-            <div class="sort">
-                    <p>Sort by:</p>
-                <div class="sort-right">
-                    <select>
-                        <option>Newest First</option>
-                        <option>Oldest First</option>
-                    </select>
+            <div class="completed-tasks">
+                <div class="completed-tasks-top">
+                    <p>Completed Tasks</p>
+                    <div class="completed-tasks-top-right">
+                        <button type="button" id="clear-completed-task">Clear Completed Tasks</button>
+                    </div>
                 </div>
+                <!-- <div class="tasks-menu"> -->
+                    <div class="tasks-menu" id="task-completed">
+    
+                    </div>
+                <!-- </div> -->
             </div>
         </div>
-        <div class="tasks">
-            <p>Active Tasks</p>
-            
-                <div class="tasks-menu" id="active-tasks-menu-item">
-                </div>
-            
-        </div>
-        <div class="completed-tasks">
-            <div class="completed-tasks-top">
-                <p>Completed Tasks</p>
-                <div class="completed-tasks-top-right">
-                    <button type="button" id="clear-completed-task">Clear Completed Tasks</button>
-                </div>
+    
+        <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header border-0 ">
+              <!-- <h5 class="modal-title " id="exampleModalLabel">Delete Task</h5> -->
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <!-- <div class="tasks-menu"> -->
-                <div class="tasks-menu" id="task-completed">
-
-                </div>
-            <!-- </div> -->
-        </div>
-    </div>
-
-    <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Delete Task</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          are you sure want to delete
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button id="delete-task-confirm" type="button" class="btn btn-primary">Delete</button>
+            <div class="modal-body text-center">
+                <p class="custom-txt">Delete</p>
+                Are you sure you want to delete this task?
+            </div>
+            <div class="modal-footer border-0  d-flex justify-content-center">
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+              <button id="delete-task-confirm" type="button" class="btn bg-danger text-white">Delete</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    <!-- </div> -->
+    
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

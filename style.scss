@@ -1,15 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
-    justify-content: center;
     margin: 0;
     padding: 0;
     font-family: "Montserrat";
 }
 
-p,hr,span{
+p,
+hr,
+span {
     margin: 0;
     padding: 0;
 }
+
 body button {
     border: none;
 }
@@ -20,26 +23,44 @@ body button {
     display: flex;
     flex-direction: column;
     max-width: 1440px;
+    width: 100%;
     padding: 32px 64px;
     gap: 32px;
-    p,hr,span{
+
+    p,
+    hr,
+    span {
         margin: 0;
         padding: 0;
     }
+
     input[type="checkbox"] {
         appearance: none;
         /* default style */
-        width: 25px;
-        height: 25px;
+        width: 32px;
+        height: 32px;
         background-color: #fff;
         border: 1px solid #ccc;
         border-radius: 50px;
         cursor: pointer;
-      }
-      input[type="checkbox"]:checked {
-        background-color: green;
-      }
+    }
+
+    input[type="checkbox"]:checked {
+        background-image: url('images/checked.svg');
+        background-size: cover;
+    }
+
+    input:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    select:focus {
+        outline: none;
+        box-shadow: none;
+    }
 }
+
 .title-container {
     display: flex;
     max-width: 1312px;
@@ -47,13 +68,15 @@ body button {
     justify-content: space-between;
     gap: 12px;
 }
+
 .container-left {
     display: flex;
     align-items: center;
     max-width: 1157px;
     width: 100%;
+
     p {
-        color:#101828 ;
+        color: #101828;
         font-size: 1.5rem;
         font-weight: 600;
         line-height: 32px;
@@ -71,7 +94,8 @@ body button {
     font-weight: 600;
     line-height: 20px;
 }
- hr {
+
+hr {
     max-width: 1312px;
     border: 1px solid #D0D5DD;
 }
@@ -81,7 +105,6 @@ body button {
     align-items: center;
     justify-content: space-between;
 }
-
 .input-group {
     border: 1px solid #CECECE;
     border-radius: 8px;
@@ -90,6 +113,7 @@ body button {
     padding: 10px 14px;
     gap: 8px;
     max-width: 578px;
+
     input {
         margin: 0;
         padding: 0;
@@ -99,45 +123,66 @@ body button {
         font-weight: 500;
         line-height: 24px;
     }
+
     button {
         background: none;
         border: none;
+
         button img {
             max-width: 20px;
         }
     }
-    
+
 }
+
 .sort {
     display: flex;
     gap: 8px;
     justify-content: center;
     align-items: center;
-    p{
+    .dropdown{
+        padding: 0;
+    }
+    #sort-select{
+        padding: 0;
+    }
+    p {
         color: #09174A;
         font-size: 0.875rem;
         line-height: 17.07px;
         font-weight: 600;
     }
 }
-.sort-right{
-    display: flex;
+#newest{
+    color: white;
+    border-radius: 4px;
+}
+#oldest{
+    border-radius: 4px;
+}
+#newest,#oldest:hover{
+    background-color: #0C39C7;
+    color: white;
+}
+.sort-right {
     border: 1px solid #CECECE;
-    padding: 10px 14px;
-    gap: 10px;
+    padding:0px 8px;
     border-radius: 5px;
     color: #282829;
 }
-select{
+
+#dropdownMenuLink {
     border: none;
-    option {
-        font-size: 1rem;
-        background-color: red; /* Light gray background */
-        color: #333; /* Dark gray text */
-        padding: 5px 10px; /* Add some padding */
-      }
-      
+    color: #282829;
+    max-width: 150px;
+    width: 100%;
+    background-color: white;
 }
+
+.form-select {
+    background-color: red;
+}
+
 
 
 .tasks {
@@ -145,11 +190,12 @@ select{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    p{
+
+    p {
         font-size: 1.125rem;
         color: #8B8B8B;
         line-height: 21.94px;
-        font-weight:600 ;
+        font-weight: 600;
     }
 }
 
@@ -164,7 +210,7 @@ select{
     // flex-direction: column;
     align-items: start;
     width: 100%;
-    max-width:1312px ;
+    max-width: 1312px;
     gap: 20px;
     display: flex;
     padding: 24px;
@@ -180,7 +226,7 @@ select{
 //     align-items: start;
 //     display: flex;
 //     gap: 14px;
-    
+
 // }
 
 .tasks-child-content {
@@ -189,6 +235,11 @@ select{
     max-width: 1218px;
     width: 100%;
     gap: 12px;
+    p{
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 20px;
+    }
 }
 
 .tasks-child-content-title {
@@ -200,19 +251,14 @@ select{
     display: flex;
     align-items: center;
     gap: 8px;
-    p{
+
+    p {
         color: #282829;
         font-size: 1.125rem;
         line-height: 21.94px;
         font-weight: 600;
+        color: #475467;
     }
-}
-
-.tasks-menu-para {
-    color: #475467;
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 20px;
 }
 
 .tasks-child-heading-icon {
@@ -223,22 +269,33 @@ select{
     border-radius: 50%;
 }
 
+.tasks-child-heading-sucess {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    background-color: #26AD13;
+    border-radius: 50%;
+}
+
+
 .tasks-child-content-title-icon {
     display: flex;
     gap: 16px;
-    button{
+
+    button {
         background-color: white;
         padding: 0;
         margin: 0;
     }
 }
-.dateDisplay{
-    max-width: 148px;
-    padding: 2px 6px;
+
+.dateDisplay {
+    max-width: 136px;
+    padding: 2px 8px;
     display: flex;
     border-radius: 4px;
     gap: 4px;
-    
+
 }
 
 .completed-tasks {
@@ -252,6 +309,7 @@ select{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     p {
         font-size: 1.125rem;
         font-weight: 600;
@@ -271,4 +329,26 @@ select{
     font-weight: 600;
     line-height: 20px;
     color: #0C39C7;
+}
+
+.date-Display {
+    background: #C035030F;
+    color: red;
+    /* Change the text color to red */
+}
+
+.date-overdue img {
+    filter: hue-rotate(0deg) saturate(200%) brightness(0.7) sepia(1);
+    /* Adjusts the color of the image to red */
+}
+.delete-model-header{
+    background-color: red;
+    text-align: center;
+}
+
+
+.custom-txt{
+    font-size: 1.125rem;
+    color: #09174A;
+    font-weight: 600;
 }

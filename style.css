@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 body {
-  justify-content: center;
   margin: 0;
   padding: 0;
   font-family: "Montserrat";
 }
 
-p, hr, span {
+p,
+hr,
+span {
   margin: 0;
   padding: 0;
 }
@@ -21,10 +22,13 @@ body button {
   display: flex;
   flex-direction: column;
   max-width: 1440px;
+  width: 100%;
   padding: 32px 64px;
   gap: 32px;
 }
-.parent-container p, .parent-container hr, .parent-container span {
+.parent-container p,
+.parent-container hr,
+.parent-container span {
   margin: 0;
   padding: 0;
 }
@@ -33,15 +37,24 @@ body button {
      -moz-appearance: none;
           appearance: none;
   /* default style */
-  width: 25px;
-  height: 25px;
+  width: 32px;
+  height: 32px;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 50px;
   cursor: pointer;
 }
 .parent-container input[type=checkbox]:checked {
-  background-color: green;
+  background-image: url("images/checked.svg");
+  background-size: cover;
+}
+.parent-container input:focus {
+  outline: none;
+  box-shadow: none;
+}
+.parent-container select:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .title-container {
@@ -120,6 +133,12 @@ hr {
   justify-content: center;
   align-items: center;
 }
+.sort .dropdown {
+  padding: 0;
+}
+.sort #sort-select {
+  padding: 0;
+}
 .sort p {
   color: #09174A;
   font-size: 0.875rem;
@@ -127,23 +146,37 @@ hr {
   font-weight: 600;
 }
 
+#newest {
+  color: white;
+  border-radius: 4px;
+}
+
+#oldest {
+  border-radius: 4px;
+}
+
+#newest, #oldest:hover {
+  background-color: #0C39C7;
+  color: white;
+}
+
 .sort-right {
-  display: flex;
   border: 1px solid #CECECE;
-  padding: 10px 14px;
-  gap: 10px;
+  padding: 0px 8px;
   border-radius: 5px;
   color: #282829;
 }
 
-select {
+#dropdownMenuLink {
   border: none;
+  color: #282829;
+  max-width: 150px;
+  width: 100%;
+  background-color: white;
 }
-select option {
-  font-size: 1rem;
-  background-color: red; /* Light gray background */
-  color: #333; /* Dark gray text */
-  padding: 5px 10px; /* Add some padding */
+
+.form-select {
+  background-color: red;
 }
 
 .tasks {
@@ -184,6 +217,11 @@ select option {
   width: 100%;
   gap: 12px;
 }
+.tasks-child-content p {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 20px;
+}
 
 .tasks-child-content-title {
   display: flex;
@@ -200,13 +238,7 @@ select option {
   font-size: 1.125rem;
   line-height: 21.94px;
   font-weight: 600;
-}
-
-.tasks-menu-para {
   color: #475467;
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 20px;
 }
 
 .tasks-child-heading-icon {
@@ -214,6 +246,14 @@ select option {
   width: 11px;
   height: 11px;
   background-color: #EBB705;
+  border-radius: 50%;
+}
+
+.tasks-child-heading-sucess {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  background-color: #26AD13;
   border-radius: 50%;
 }
 
@@ -228,8 +268,8 @@ select option {
 }
 
 .dateDisplay {
-  max-width: 148px;
-  padding: 2px 6px;
+  max-width: 136px;
+  padding: 2px 8px;
   display: flex;
   border-radius: 4px;
   gap: 4px;
@@ -264,4 +304,26 @@ select option {
   font-weight: 600;
   line-height: 20px;
   color: #0C39C7;
+}
+
+.date-Display {
+  background: rgba(192, 53, 3, 0.0588235294);
+  color: red;
+  /* Change the text color to red */
+}
+
+.date-overdue img {
+  filter: hue-rotate(0deg) saturate(200%) brightness(0.7) sepia(1);
+  /* Adjusts the color of the image to red */
+}
+
+.delete-model-header {
+  background-color: red;
+  text-align: center;
+}
+
+.custom-txt {
+  font-size: 1.125rem;
+  color: #09174A;
+  font-weight: 600;
 }/*# sourceMappingURL=style.css.map */

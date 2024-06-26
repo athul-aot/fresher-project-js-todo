@@ -10,10 +10,13 @@ body {
   display: flex;
   flex-direction: column;
   position: absolute;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   max-width: 654px;
   padding: 40px;
-  left: 409px;
+  left: 0;
+  right: 0;
   top: 79px;
   border-radius: 12px;
   gap: 32px;
